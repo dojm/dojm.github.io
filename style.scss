@@ -197,7 +197,7 @@ header {
 
   .main-image {
     .self-photo {
-      width: 200px;
+      width: 180px;
     }
   }
 }
@@ -494,6 +494,12 @@ ol.ux {
           .intro-name, .intro-role {
             font-size: 1.5rem;
           }
+        }
+      }
+
+      .main-image {
+        .self-photo {
+          width: 200px;
         }
       }
     }

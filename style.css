@@ -224,7 +224,7 @@ header {
 }
 
 .container .main-image .self-photo {
-  width: 200px;
+  width: 180px;
 }
 
 main {
@@ -551,6 +551,9 @@ ol.ux img {
   }
   header .container .intro div .intro-name, header .container .intro div .intro-role {
     font-size: 1.5rem;
+  }
+  header .container .main-image .self-photo {
+    width: 200px;
   }
   .wrapper {
     display: -webkit-box;
