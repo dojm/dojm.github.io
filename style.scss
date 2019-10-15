@@ -224,6 +224,9 @@ main {
     h2 {
       font-size: 2.8rem;
       color: $body-font-color;
+      position: relative;
+      display: inline-block;
+      z-index: 2;
     }
 
     &::after {
@@ -269,9 +272,23 @@ main {
          div {
           text-align: center;
 
-          i {
-            margin: 10px 15px;
-            font-size: 3rem;
+          ul {
+
+            li {
+              list-style: none;
+              display: inline-block;
+              margin: 12px;
+              width: 70px;
+              vertical-align: top;
+              
+              img {
+                width: 50px;
+                opacity: 0.8;
+              }
+              span {
+                display: block;
+              }
+            }
           }
         }
       }
@@ -284,10 +301,13 @@ main {
 
   h2::after {
     content: ' ';
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 8px solid rgba(0, 0, 0, 0.2);
     width: 100%;
     display: block;
     transform: rotate(0deg) translateY(-8px);
+    z-index: 1;
+    position: absolute;
+    bottom: 2px;
   }
 
   ul {
@@ -511,23 +531,12 @@ ol.ux {
     background: #fae3d9;
 
     main {
-      width: 80vw;
+      width: 70vw;
       padding: 20px;
       
       section {
         width: inherit;
 
-        &#skills {
-
-          > div {
-            
-            i {
-              font-size: 4rem;
-              margin: 5px 30px;
-            }
-
-          }
-        }
       }
     }
   }
