@@ -11,13 +11,15 @@ $body-font: 'Nunito', sans-serif;
 $project-header-font: 'Arya', sans-serif;
 $number-font: 'Caveat', sans-serif;
 
-$header-background: linear-gradient(to bottom, #75bdd9,#fae3d9);
+$header-background: linear-gradient(to bottom, #75bdd9,#f8ede8);
 $nav-background: #75bdd9;
-$main-background: lighten(#fae3d9, 4%);
+$main-background: #f8ede8;
+$footer-background: linear-gradient(to top, #75bdd9,#f8ede8);
 
 $heading-color: #61c0bf;
 $body-font-color: #333;
-$project-header-color: #d9758b;
+$skills-header-color: darken(#75bdd9, 15%);
+$project-header-color: darken(#75bdd9, 15%);
 // #283c63
 
 $nav-link-color: #fae3d9;
@@ -35,8 +37,6 @@ body {
   font-size: 0.95rem;
   color: $body-font-color;
 }
-
-
 h1, h2, h3, h4, h5, h6, p {
   margin-top: 5px;
   margin-bottom: 20px;
@@ -88,7 +88,7 @@ header {
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -203,7 +203,7 @@ header {
 }
 
 main {
-  background: $main-background;
+  // background: $main-background;
   display: flex;
   flex-direction: column;
 
@@ -218,8 +218,8 @@ main {
 
   section {
     margin: 0;
-    padding: 60px 20px 0 20px;
-    width: 100vw;
+    padding: 60px 5vw 0 5vw;
+    width: 100%;
 
     h2 {
       font-size: 2.8rem;
@@ -229,33 +229,47 @@ main {
       z-index: 2;
     }
 
-    &::after {
-      content: '';
-      width: 100%;
-      height: 60px;
-      clip-path: polygon(0 0, 100% 0, 100% 100%);
-      position: absolute;
-      bottom: -59px;
-      left: 0;
-      z-index: 2;
+    &#about, &#skills {
+      &::before, &::after {
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        content: '';
+        z-index: 2;
+      }
+
+      &::before {
+        right: 50%;
+        transform: skew(0, 20deg); 
+      }
+
+      &::after {
+        left: 50%;
+        transform: skew(0, -20deg);
+      }
     }
 
     &#about {
-      background: lighten(#EE869D, 10%);
+      // background: lighten(#EE869D, 10%);
       position: relative;
+      margin-bottom: 40px;
+      text-align: center;
 
-      &::after {
-        background: lighten(#EE869D, 10%);
+      &::before, &::after {
+        background: #f8ede8;
+        bottom: -57px;
       }
     }
 
     &#skills {
-      background: lighten(#75d991, 18%);
+      background: lighten(#E17990, 22%);
       position: relative;
 
-      &::after {
-        background: lighten(#75d991, 18%);
+      &::before, &::after {
+        background: lighten(#E17990, 22%);
+        bottom: -19px;
       }
+
 
       > div {
         margin-bottom: 50px;
@@ -266,7 +280,7 @@ main {
         h3 {
           font-family: $project-header-font;
           font-size: 1.6rem;
-          color: darken(#bbded6, 30%);
+          color: $skills-header-color;
         }
 
          div {
@@ -292,10 +306,6 @@ main {
           }
         }
       }
-    }
-
-    &#projects {
-      background: lighten($main-background, 2%);
     }
   }
 
@@ -323,56 +333,35 @@ main {
   .project-item {
     margin-bottom: 80px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-    &:nth-of-type(1) h3::before {
-      content: '1';
-    }
-    &:nth-of-type(2) h3::before {
-      content: '2';
-    }
-    &:nth-of-type(3) h3::before {
-      content: '3';
-    }
-    &:nth-of-type(4) h3::before {
-      content: '4';
-    }
-    &:nth-of-type(5) h3::before {
-      content: '5';
-    }
-
-    .project-header {
+    .project-showcase {
+      margin-right: 50px;
       text-align: center;
 
-      h3 {
-        font-family: $project-header-font;
-        font-size: 1.6rem;
-        line-height: 2.24rem;
-        color: $project-header-color;
-        position: relative;
-        z-index: 2;
-        
-        &::before {
-          font-family: $number-font, sans-serif;
-          font-size: 12rem;
-          color: rgba(#fff, 0.6);
-          opacity: 1;
-          display: block;
-          z-index: -2;
-          position: absolute;
+      .project-header {
+        h3 {
+          font-family: $project-header-font;
+          font-size: 1.8rem;
+          line-height: 2.24rem;
+          color: $project-header-color;
+          position: relative;
         }
       }
-    }
+    
+      img {
+        max-width: 280px;
+        filter: drop-shadow(0px 3px 3px rgba(60, 60, 60, 0.5));
+        position: relative;
+      }
   
-    img {
-      width: 280px;
-      filter: drop-shadow(0px 3px 3px rgba(60, 60, 60, 0.5));
-      z-index: 2;
-      position: relative;
+      .project-links {
+        text-align: center;
+      }
     }
-
-    .project-links {
-      text-align: center;
-    }
+    
   }
   
   a.view {
@@ -416,10 +405,10 @@ main {
 
 footer {
   text-align: center;
-  background: $nav-background;
+  background: $footer-background;
 
   section {
-    padding: 30px;
+    padding: 40px 30px;
   }
 
   h2 {
@@ -528,15 +517,23 @@ ol.ux {
   .wrapper {
     display: flex;
     justify-content: center;
-    background: #fae3d9;
+    background: #f8ede8;
 
     main {
-      width: 70vw;
-      padding: 20px;
+      width: 100%;
       
       section {
         width: inherit;
+        padding: 60px 12vw 0 12vw;
 
+      }
+      .project-item {
+
+        .project-showcase {
+          img {
+            max-width: 400px;
+          }
+        }
       }
     }
   }
@@ -550,6 +547,37 @@ ol.ux {
   ol.ux {
     img {
       width: 450px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrapper {
+
+    main {
+
+      section {
+        padding: 60px 16vw 0 16vw;
+      }
+
+      .project-item {
+        display: flex;
+        flex-direction: row;
+      
+        .project-showcase {
+
+          .project-header {
+            text-align: left;
+          }
+          img {
+           max-width: 470px;
+          }
+        }
+        .project-about {
+          margin-top: 50px;
+        }
+
+      }
     }
   }
 }
