@@ -203,9 +203,9 @@ header {
 }
 
 main {
-  // background: $main-background;
   display: flex;
   flex-direction: column;
+  background: #f8ede8;
 
   a {
     &:link {
@@ -250,7 +250,7 @@ main {
     }
 
     &#about {
-      // background: lighten(#EE869D, 10%);
+      background: #f8ede8;
       position: relative;
       margin-bottom: 40px;
       text-align: center;
@@ -258,6 +258,10 @@ main {
       &::before, &::after {
         background: #f8ede8;
         bottom: -57px;
+      }
+
+      li {
+        list-style: none;
       }
     }
 

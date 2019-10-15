@@ -235,6 +235,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background: #f8ede8;
 }
 
 main a:link {
@@ -280,6 +281,7 @@ main section#about::after, main section#skills::after {
 }
 
 main section#about {
+  background: #f8ede8;
   position: relative;
   margin-bottom: 40px;
   text-align: center;
@@ -288,6 +290,10 @@ main section#about {
 main section#about::before, main section#about::after {
   background: #f8ede8;
   bottom: -57px;
+}
+
+main section#about li {
+  list-style: none;
 }
 
 main section#skills {
