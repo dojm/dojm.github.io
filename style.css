@@ -322,7 +322,7 @@ main section#skills::before, main section#skills::after {
 }
 
 main section#skills > div {
-  margin-bottom: 50px;
+  margin-bottom: 38px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
